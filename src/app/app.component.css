@@ -1,0 +1,42 @@
+.contenido{
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    flex: 1;
+}
+
+.titulo{
+    text-align: center;
+    font-size: 60px;
+    font-weight:bolder;
+}
+
+.encabezado{
+    font-size: 20px;
+}
+
+.completo{
+    width: 100%;
+}
+
+.telefono{
+    display: block;
+    width: 40%;
+    margin: 0 auto;
+}
+
+.encabezadotelefono{
+    text-align: center;
+    font-size: 30px;
+}
+
+.footer {
+    height: 80px; /* o el alto que prefieras */
+}
+
+.alinear {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px; 
+  }

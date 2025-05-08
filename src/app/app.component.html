@@ -1,0 +1,91 @@
+<div class="contenido">
+    <div class="titulo">
+        <p>Solicitar mandadito</p>
+    </div>
+    <form class="formulario-principal">
+        <div class="encabezadotelefono">
+            <p>Numero de telefono de la persona que envia:</p>
+        </div>
+        <mat-form-field class="telefono">
+            <mat-label>Telefono:</mat-label>
+            <span matTextPrefix>+52 &nbsp;</span>
+            <input matInput (keypress)="soloNumeros($event)" placeholder="555-555-1234">
+            <mat-icon matSuffix>phone_in_talk</mat-icon>
+        </mat-form-field>
+        <div class="encabezado">
+            <p>Datos de recoleccion:</p>
+        </div>
+        <mat-form-field class="completo">
+            <mat-label>Calle y numero:</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="completo">
+            <mat-label>Entre calles:</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="completo">
+            <mat-label>Colonia:</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="completo">
+            <mat-label>Nombre:</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <div class="encabezado">
+            <p>Datos de entrega:</p>
+        </div>
+        <mat-form-field class="telefono">
+            <mat-label>Telefono:</mat-label>
+            <span matTextPrefix>+52 &nbsp;</span>
+            <input matInput (keypress)="soloNumeros($event)" placeholder="555-555-1234">
+            <mat-icon matSuffix>phone_in_talk</mat-icon>
+        </mat-form-field>
+        <mat-form-field class="completo">
+            <mat-label>Calle y numero:</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="completo">
+            <mat-label>Entre calles:</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="completo">
+            <mat-label>Colonia:</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="completo">
+            <mat-label>Nombre:</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <div class="encabezado">
+            <p>¿Que vamos a hacer?</p>
+        </div>
+        <mat-radio-group aria-label="selecciona">
+            <mat-radio-button value="1">Recoger</mat-radio-button>
+            <mat-radio-button value="2">Compra</mat-radio-button>
+        </mat-radio-group>
+        <div class="encabezado">
+            <p>¿Cuanto se paga?</p>
+        </div>
+        <mat-form-field class="completo">
+            <span matTextPrefix>$ &nbsp;</span>
+            <input matInput (keypress)="permitirNumerosDecimalDosDigitos($event)">
+            <mat-icon matSuffix>payments</mat-icon>
+        </mat-form-field>
+        <div class="encabezado">
+            <p>Forma de pago:</p>
+        </div>
+        <mat-radio-group aria-label="selecciona">
+            <mat-radio-button value="1">Efectivo</mat-radio-button>
+            <mat-radio-button value="2">Trasferencia</mat-radio-button>
+        </mat-radio-group>
+    </form>
+    <div class="alinear">
+        <button  mat-fab extended>Iniciar envio (Whatsapp) <mat-icon>local_shipping</mat-icon></button>
+        
+    </div>
+    
+</div>
+<footer class="footer">
+
+</footer>
