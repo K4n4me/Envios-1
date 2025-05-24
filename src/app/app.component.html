@@ -2,34 +2,39 @@
     <div class="titulo">
         <p>Solicitar mandadito</p>
     </div>
-    <form class="formulario-principal">
+    <form [formGroup]="formulario" class="formulario-principal" (ngSubmit)="guardarEnCookie()">
         <div class="encabezadotelefono">
             <p>Numero de telefono de la persona que envia:</p>
         </div>
         <mat-form-field class="telefono">
             <mat-label>Telefono:</mat-label>
             <span matTextPrefix>+52 &nbsp;</span>
-            <input matInput (keypress)="soloNumeros($event)" placeholder="555-555-1234">
+            <input matInput formControlName="nEnvio" (keypress)="soloNumeros($event)" placeholder="555-555-1234" (blur)="cargarCookieEnvio()">
             <mat-icon matSuffix>phone_in_talk</mat-icon>
+            <mat-error>El campo es requerido.</mat-error>
         </mat-form-field>
         <div class="encabezado">
             <p>Datos de recoleccion:</p>
         </div>
         <mat-form-field class="completo">
+            <mat-label>Nombre:</mat-label>
+            <input matInput formControlName="nomEnvio">
+            <mat-error>El campo es requerido.</mat-error>
+        </mat-form-field>
+        <mat-form-field class="completo">
             <mat-label>Calle y numero:</mat-label>
-            <input matInput>
+            <input matInput formControlName="calleEnvio">
+            <mat-error>El campo es requerido.</mat-error>
         </mat-form-field>
         <mat-form-field class="completo">
             <mat-label>Entre calles:</mat-label>
-            <input matInput>
+            <input matInput formControlName="entreEnvio">
+            <mat-error>El campo es requerido.</mat-error>
         </mat-form-field>
         <mat-form-field class="completo">
             <mat-label>Colonia:</mat-label>
-            <input matInput>
-        </mat-form-field>
-        <mat-form-field class="completo">
-            <mat-label>Nombre:</mat-label>
-            <input matInput>
+            <input matInput formControlName="colEnvio">
+            <mat-error>El campo es requerido.</mat-error>
         </mat-form-field>
 
         <div class="encabezado">
@@ -38,25 +43,31 @@
         <mat-form-field class="telefono">
             <mat-label>Telefono:</mat-label>
             <span matTextPrefix>+52 &nbsp;</span>
-            <input matInput (keypress)="soloNumeros($event)" placeholder="555-555-1234">
+            <input matInput formControlName="nRecibe" (keypress)="soloNumeros($event)" placeholder="555-555-1234" (blur)="cargarCookieRecibe()">
             <mat-icon matSuffix>phone_in_talk</mat-icon>
-        </mat-form-field>
-        <mat-form-field class="completo">
-            <mat-label>Calle y numero:</mat-label>
-            <input matInput>
-        </mat-form-field>
-        <mat-form-field class="completo">
-            <mat-label>Entre calles:</mat-label>
-            <input matInput>
-        </mat-form-field>
-        <mat-form-field class="completo">
-            <mat-label>Colonia:</mat-label>
-            <input matInput>
+            <mat-error>El campo es requerido.</mat-error>
         </mat-form-field>
         <mat-form-field class="completo">
             <mat-label>Nombre:</mat-label>
-            <input matInput>
+            <input matInput formControlName="nomRecibe">
+            <mat-error>El campo es requerido.</mat-error>
         </mat-form-field>
+        <mat-form-field class="completo">
+            <mat-label>Calle y numero:</mat-label>
+            <input matInput formControlName="domRecibe">
+            <mat-error>El campo es requerido.</mat-error>
+        </mat-form-field>
+        <mat-form-field class="completo">
+            <mat-label>Entre calles:</mat-label>
+            <input matInput formControlName="entreRecibe">
+            <mat-error>El campo es requerido.</mat-error>
+        </mat-form-field>
+        <mat-form-field class="completo">
+            <mat-label>Colonia:</mat-label>
+            <input matInput formControlName="colRecibe">
+            <mat-error>El campo es requerido.</mat-error>
+        </mat-form-field>
+
         <div class="encabezado">
             <p>¿Que vamos a hacer?</p>
         </div>
@@ -79,11 +90,16 @@
             <mat-radio-button value="1">Efectivo</mat-radio-button>
             <mat-radio-button value="2">Trasferencia</mat-radio-button>
         </mat-radio-group>
+        <div class="alinear">
+            @if (click) {
+                <button mat-fab extended type="submit" [disabled]="!formulario.valid"><mat-spinner color="red" diameter="20" class="loading"></mat-spinner></button>
+            }
+            @else {
+                <button mat-fab extended type="submit" [disabled]="!formulario.valid">Iniciar envio (Whatsapp)<mat-icon>local_shipping</mat-icon></button>
+            }
+            
+        </div>
     </form>
-    <div class="alinear">
-        <button  mat-fab extended>Iniciar envio (Whatsapp) <mat-icon>local_shipping</mat-icon></button>
-        
-    </div>
     
 </div>
 <footer class="footer">
